@@ -1,0 +1,22 @@
+{
+  "name": "trial-repo",
+  "version": "1.0.0",
+  "description": "a simple trial for node commands",
+  "main": "nodetrial.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anarchymonkey/node-trial-repo.git"
+  },
+  "author": "Aniket batabyal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anarchymonkey/node-trial-repo/issues"
+  },
+  "homepage": "https://github.com/anarchymonkey/node-trial-repo#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

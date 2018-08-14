@@ -1,0 +1,1 @@
+console.log("TRIAL OF NODE APP FOR ExPRESS APPS");
