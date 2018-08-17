@@ -1,12 +1,14 @@
-var express = require("express");
-var app = express();
+var express = require("express"); // require express package
+var app = express(); // return value from express
+app.use(express.static("public")); // to use the folder public for css and javascript
 
 app.get("/testing/:name",function(req,res){
   var name = req.params.name;
-  res.render("index.ejs",{nameVar : name });
+  //res.render helps us interact with the ejs file
+  res.render("index.ejs",{nameVar : name }); // passing variable name as nameVar to the ejs file
 });
-
 app.get("/posts",function(req,res){
+  //array of posts
       var posts = [
                   {
                       title:" hey my name is aniket",
@@ -16,9 +18,12 @@ app.get("/posts",function(req,res){
                       author:"Neeelesh Vashist"
                   }
                 ];
-                res.render("posts.ejs", {posts : posts})
+                //we can loop through to get posts
+                res.render("posts.ejs", {posts : posts}); // rendering the posts var[array] as posts
 
 })
+
+//listening on port 3000
 app.listen(3000,function()
 {
   console.log("server has started");
