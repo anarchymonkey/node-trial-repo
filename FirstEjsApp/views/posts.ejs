@@ -1,5 +1,8 @@
+<% include partials/header.ejs%>
 <h3> Listed here are the various posts of the people </h3>
 <%= posts %>
 <% for(var i = 0 ; i<posts.length;i++){ %>
   <li> <%=posts[i].title%> written by author <em><%= posts[i].author%></em></li>
 <%}%>
+
+<% include partials/footer.ejs %>
