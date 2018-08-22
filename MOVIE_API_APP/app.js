@@ -10,8 +10,17 @@ app.get('/',function(req,res){
 });
 request("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",function(err,res,body){
 var parsedJSON = JSON.parse(body);
-     time = parsedJSON["query"]["results"]['channel']['item']['condition']['date'];
-    console.log(time);
+    // time = parsedJSON["query"]["results"]['channel']['item']['condition']['date'];
+    //console.log(time);
+    console.log("THE CITY IS...");
+    console.log(parsedJSON["query"]["results"]["channel"]["location"]["city"]);
+    console.log("THE COUNTRY IS...");
+    console.log(parsedJSON["query"]["results"]["channel"]["location"]["country"]);
+    console.log("THE REGION IS SITUATED IN..");
+    console.log(parsedJSON["query"]["results"]["channel"]["location"]["region"]);
+
+    // parse the json file and put it in a object
+
 });
 app.get('/:name/:id',function(req,res){
   var name = req.params.name;
