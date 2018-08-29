@@ -6,17 +6,31 @@ var time;
 var city;
 var country;
 var region;
+
+var data;
 app.set("view engine","ejs");
 app.get('/',function(req,res){
   console.log('THE HOME PAGE IS ACCESSED');
   res.render("index");
 });
+app.get("/results",function(req,response)
+{
+  request("http://www.omdbapi.com/?s=california&apikey=771ccf60",function(err,res,body){
+if(!err && res.statusCode == 200)
+{   var parsedJSON = JSON.parse(body);
+    data = parsedJSON;
+  }
+  else{
+    console.log("check connection");
+  }
+  });
+  response.send(data);
+  console.log("results route has started");
+});
 // request for the hawai api time
 request("https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20%3D%202487889&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",function(err,res,body){
-
   var parsedJSON = JSON.parse(body);
   time = parsedJSON["query"]["results"]["channel"]["item"]["condition"]["date"];
-
 });
 
 // request for the other time
@@ -47,6 +61,10 @@ app.get('/:name/:id',function(req,res){
                             region : region
                           });
                         });
+
+/* MAIN APPPPPPPPP PAGEEEEEEEEE */
+
+
 app.listen(3000,function(){
   console.log("THE SERVER HAS STARTED");
 });
