@@ -19,5 +19,9 @@ STEP 1:
 HOW TO RUN:
 
  WINDOWS:
+ download node.exe from official site
+ open cmd
+ type node -v
+ npm -v
                 
                 
