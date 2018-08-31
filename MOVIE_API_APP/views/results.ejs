@@ -1,0 +1,7 @@
+<% include partials/header.ejs %>
+
+<h1> THE SEARCH RESULTS FOR CALIFORNIA IS </h1>
+<% for(var i = 0 ; i<data.length ;i++){ %>
+  <li><%= data[i]["Title"]%></li>
+<li><%= data[i]["Year"]%></li>
+<%}%>

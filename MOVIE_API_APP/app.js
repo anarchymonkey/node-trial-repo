@@ -6,6 +6,7 @@ var time;
 var city;
 var country;
 var region;
+var parsedJS
 
 var data;
 app.set("view engine","ejs");
@@ -17,14 +18,14 @@ app.get("/results",function(req,response)
 {
   request("http://www.omdbapi.com/?s=california&apikey=771ccf60",function(err,res,body){
 if(!err && res.statusCode == 200)
-{   var parsedJSON = JSON.parse(body);
-    data = parsedJSON;
+{   var parsedJS = JSON.parse(body);
+    data = parsedJS["Search"];
   }
   else{
     console.log("check connection");
   }
   });
-  response.send(data);
+  response.render("results",{data,data});
   console.log("results route has started");
 });
 // request for the hawai api time
