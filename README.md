@@ -23,5 +23,10 @@ HOW TO RUN:
  open cmd
  type node -v
  npm -v
+ 
+ for package.json
+ 
+ do npm init
+ then express --save
                 
                 
