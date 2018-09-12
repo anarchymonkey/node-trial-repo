@@ -64,6 +64,9 @@ app.get('/:name/:id',function(req,res){
                         });
 
 /* MAIN APPPPPPPPP PAGEEEEEEEEE */
+app.get("/search",function(req,res){
+  res.render("searchButton");
+})
 
 
 app.listen(3000,function(){
