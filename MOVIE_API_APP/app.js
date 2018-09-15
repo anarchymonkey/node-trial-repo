@@ -1,14 +1,14 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var request = require('request'); // request package
-var time;
-var city;
-var country;
-var region;
-var parsedJS
-
-var data;
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const request = require('request'); // request package
+let time;
+let city;
+let country;
+let region;
+let parsedJS;
+app.use(bodyParser.urlencoded({extended: true}));
+let data;
 app.set("view engine","ejs");
 app.get('/',function(req,res){
   console.log('THE HOME PAGE IS ACCESSED');
@@ -18,14 +18,15 @@ app.get("/results",function(req,response)
 {
   request("http://www.omdbapi.com/?s=california&apikey=771ccf60",function(err,res,body){
 if(!err && res.statusCode == 200)
-{   var parsedJS = JSON.parse(body);
+{
+    const parsedJS = JSON.parse(body);
     data = parsedJS["Search"];
   }
   else{
     console.log("check connection");
   }
   });
-  response.render("results",{data,data});
+  response.render("results",{data:data});
   console.log("results route has started");
 });
 // request for the hawai api time
